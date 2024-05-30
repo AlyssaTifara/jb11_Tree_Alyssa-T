@@ -12,6 +12,7 @@ public class BinaryTreeMain {
         bt.add(9);
         bt.add(10);
         bt.add(15);
+        bt.addRecursive(11); //rekursif
 
         bt.traversePre0rder(bt.root);
         System.out.println("");
@@ -23,5 +24,10 @@ public class BinaryTreeMain {
         bt.delete(8);
         bt.traversePre0rder(bt.root);
         System.out.println("");
+
+        int minValue = bt.findMin(); //nilai terkecil
+        int maxValue = bt.findMax(); //nilai terbesar
+        System.out.println("Minimum value: " + minValue);
+        System.out.println("Maximum value: " + maxValue);
     }
 }

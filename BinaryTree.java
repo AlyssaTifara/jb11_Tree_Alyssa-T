@@ -161,4 +161,44 @@ public class BinaryTree{
             }
         }
     }
+
+    void addRecursive(int data) {
+        root = addRecursive(root, data);
+    }
+    
+    Node addRecursive(Node current, int data) {
+        if (current == null) {
+            return new Node(data);
+        }
+        if (data < current.data) {
+            current.left = addRecursive(current.left, data);
+        } else if (data > current.data) {
+            current.right = addRecursive(current.right, data);
+        }
+        return current;
+    }
+
+    int findMin() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Tree is empty");
+        }
+
+        Node current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+
+    int findMax() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Tree is empty");
+        }
+
+        Node current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        return current.data;
+    }
 }
